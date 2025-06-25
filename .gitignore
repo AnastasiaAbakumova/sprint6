@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Директории виртуальных окружений (если используешь)
+venv/
+env/
+.venv/
+.env/
+
+# Логи
+*.log
+
+# Файлы настроек IDE
+.vscode/
+.idea/
+*.iml
+
+# Файлы тестовых отчетов (например, allure-results)
+allure-results/
+allure-report/
+
+# Файлы с кешем pip
+pip-wheel-metadata/
+
+# Файлы pytest cache
+.pytest_cache/
+
+# Файлы SQLite (если используются)
+*.sqlite3
+
+# Системные файлы
+.DS_Store
+Thumbs.db
