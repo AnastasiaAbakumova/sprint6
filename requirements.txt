@@ -1,0 +1,9 @@
+selenium==4.33.0
+pytest==8.4.1
+allure-pytest==2.14.3
+allure-python-commons==2.14.3
+attrs==25.3.0
+iniconfig==2.1.0
+pluggy==1.6.0
+colorama==0.4.6
+packaging==25.0
