@@ -1,33 +1,24 @@
+import allure
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from pages.base_page import BasePage
 
-class FAQPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
-
+class FAQPage(BasePage):
     COOKIE_BUTTON = (By.ID, "rcc-confirm-button")
 
-    # Метод для принятия cookie
+    @allure.step("Принять cookie")
     def accept_cookies(self):
-        cookie_btn = self.wait.until(EC.element_to_be_clickable(self.COOKIE_BUTTON))
-        cookie_btn.click()
+        self.click(self.COOKIE_BUTTON)
 
-    # Возвращает локатор заголовка вопроса по индексу
     def question_heading_locator(self, index):
         return (By.ID, f"accordion__heading-{index}")
 
-    # Возвращает локатор панели с ответом по индексу
     def answer_panel_locator(self, index):
         return (By.ID, f"accordion__panel-{index}")
 
-    # Нажать на вопрос по индексу
+    @allure.step("Кликнуть на вопрос с индексом {index}")
     def click_question(self, index):
-        heading = self.wait.until(EC.element_to_be_clickable(self.question_heading_locator(index)))
-        heading.click()
+        self.click(self.question_heading_locator(index))
 
-    # Получить текст ответа по индексу
+    @allure.step("Получить текст ответа на вопрос с индексом {index}")
     def get_answer_text(self, index):
-        panel = self.wait.until(EC.visibility_of_element_located(self.answer_panel_locator(index)))
-        return panel.text
+        return self.get_text(self.answer_panel_locator(index))
