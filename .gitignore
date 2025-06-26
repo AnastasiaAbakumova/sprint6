@@ -17,9 +17,7 @@ env/
 .idea/
 *.iml
 
-# Файлы тестовых отчетов (например, allure-results)
-allure-results/
-allure-report/
+
 
 # Файлы с кешем pip
 pip-wheel-metadata/
