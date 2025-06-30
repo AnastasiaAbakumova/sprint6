@@ -9,9 +9,11 @@ class FAQPage(BasePage):
     def accept_cookies(self):
         self.click(self.COOKIE_BUTTON)
 
+    @allure.step("Получить локатор заголовка ис индексом {index}")
     def question_heading_locator(self, index):
         return (By.ID, f"accordion__heading-{index}")
-
+    
+    @allure.step("Получить локатор панели с индексом {index}")
     def answer_panel_locator(self, index):
         return (By.ID, f"accordion__panel-{index}")
 

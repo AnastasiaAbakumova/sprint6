@@ -50,3 +50,27 @@ class BasePage:
 
     def wait_for_new_window(self, timeout=10):
         WebDriverWait(self.driver, timeout).until(lambda d: len(d.window_handles) > 1)
+
+    @allure.step("Получить текущий URL")
+    def get_current_url(self):
+        return self.driver.current_url    
+    
+    @allure.step("Получить список всех открытых вкладок")
+    def get_window_handles(self):
+        return self.driver.window_handles
+    
+    @allure.step("Переключиться на вкладку {handle}")
+    def switch_to_window(self, handle):
+        self.driver.switch_to.window(handle)
+
+    @allure.step("Закрыть текущую вкладку браузера")
+    def close_current_window(self):
+        self.driver.close()
+
+    @allure.step("Кликнуть на вопрос с индексом {index}")
+    def click_question(self, index):
+        self.click(self.question_heading_locator(index))
+
+    @allure.step("Получить текст ответа на вопрос с индексом {index}")
+    def get_answer_text(self, index):
+        return self.get_text(self.answer_panel_locator(index))

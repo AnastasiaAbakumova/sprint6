@@ -35,15 +35,4 @@ class MainPage(BasePage):
     @allure.step("Кликнуть на логотип Яндекса")
     def click_yandex_logo(self):
         self.click(self.YANDEX_LOGO)
-
-    def get_current_url(self):
-        return self.driver.current_url
-
-    def get_window_handles(self):
-        return self.driver.window_handles
-
-    def switch_to_window(self, handle):
-        self.driver.switch_to.window(handle)
-
-    def close_current_window(self):
-        self.driver.close()
+        
