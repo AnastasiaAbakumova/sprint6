@@ -27,6 +27,7 @@ class BasePage:
     def open(self, url):
         self.driver.get(url)
 
+    @allure.step("Поиск элемента с локатором: {locator}")
     def find(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator))
 
@@ -67,10 +68,3 @@ class BasePage:
     def close_current_window(self):
         self.driver.close()
 
-    @allure.step("Кликнуть на вопрос с индексом {index}")
-    def click_question(self, index):
-        self.click(self.question_heading_locator(index))
-
-    @allure.step("Получить текст ответа на вопрос с индексом {index}")
-    def get_answer_text(self, index):
-        return self.get_text(self.answer_panel_locator(index))
